@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.lqj.springbootdemo.bean.Customer;
 import com.lqj.springbootdemo.service.CustomerService;
 import org.apache.catalina.webresources.AbstractArchiveResource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,11 +43,16 @@ public class CustomerController {
         return customer;
     }
 
-    @RequestMapping("/getCustomer")
-    public String getCustomer(){
-        Customer customer = customerService.getCustomer();
-        return  JSON.toJSONString(customer);
-
+    @GetMapping("/{id}")
+    public Customer getCustomer(@PathVariable("id") Long id){
+        Customer customer = customerService.getCustomer(id);
+        return  customer;
+    }
+    @PostMapping("/{username}/{password}")
+    public String insertCustomer(@PathVariable("username") String username, @PathVariable("password") String password){
+        System.out.println(username+":"+password);
+        customerService.insertCustomer(username,password);
+        return  "success";
     }
 
 }

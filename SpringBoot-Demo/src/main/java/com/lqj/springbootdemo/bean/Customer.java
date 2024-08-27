@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Customer {
-    private String name;
+    private Long id;
+    private String username;
     private String password;
 }

@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
  * @name：CustomerService
  * @Date：2024/8/27 9:58
  */
-@Service
 public interface CustomerService {
-    Customer getCustomer();
+    Customer getCustomer(Long id);
+    void insertCustomer(String username , String password);
 
 }
