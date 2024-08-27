@@ -14,4 +14,6 @@ public interface CustomerService {
     Customer getCustomer(Long id);
     void insertCustomer(String username , String password);
 
+    void updateCustomer(Customer customer);
+
 }

@@ -54,5 +54,10 @@ public class CustomerController {
         customerService.insertCustomer(username,password);
         return  "success";
     }
+    @PostMapping("/updateCustomer")
+    public String updateCustomer(@RequestBody Customer customer){
+        customerService.updateCustomer(customer);
+        return "success";
+    }
 
 }

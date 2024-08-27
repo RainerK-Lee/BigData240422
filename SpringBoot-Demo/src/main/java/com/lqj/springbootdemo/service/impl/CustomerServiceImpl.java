@@ -3,6 +3,7 @@ package com.lqj.springbootdemo.service.impl;
 import com.lqj.springbootdemo.bean.Customer;
 import com.lqj.springbootdemo.mapper.CustomerMapper;
 import com.lqj.springbootdemo.service.CustomerService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +27,13 @@ public class CustomerServiceImpl implements CustomerService {
     public void insertCustomer(String username, String password) {
         System.out.println(username + ":"+ password);
         customerMapper.insertCustomer(username,password);
+    }
+
+    @Override
+    public void updateCustomer(Customer customer) {
+        Customer customer1 = new Customer();
+        BeanUtils.copyProperties(customer,customer1);
+        customerMapper.updateById(customer1);
     }
 
 
